@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClienteController {
     private final ClienteService clienteService;
+    private final UsuarioService usuarioService;
 
     @GetMapping(path = "/listar", produces = "application/json")
     public List<Cliente> lista() {
@@ -44,5 +45,10 @@ public class ClienteController {
     @GetMapping(path = "/buscarcedula/{id}", produces = "application/json")
     public Cliente buscaCedula(@PathVariable("id") String cedula) {
         return clienteService.findbyCedula(cedula);
+    }
+
+    @GetMapping(path = "/buscarporusuario/{id}", produces = "application/json")
+    public Cliente buscaUsuario(@PathVariable("id") int idUsr) {
+        return clienteService.findbyUsuario(usuarioService.findbyId(idUsr));
     }
 }

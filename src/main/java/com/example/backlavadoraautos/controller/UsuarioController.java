@@ -45,7 +45,7 @@ public class UsuarioController {
         return usuarioService.findbyNick(id);
     }
 
-    @GetMapping(path = "/login/{nick}/{pass}/", produces = "application/json")
+    @GetMapping(path = "/login/{nick}/{pass}", produces = "application/json")
     public Usuario buscaNick(@PathVariable("nick") String nick,
                              @PathVariable("pass") String pass) {
         return usuarioService.findbyLogin(nick, pass);

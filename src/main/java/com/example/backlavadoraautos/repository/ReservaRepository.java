@@ -5,7 +5,9 @@ import com.example.backlavadoraautos.entity.Reserva;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ReservaRepository extends CrudRepository<Reserva, Integer> {
-    Reserva findByNumero(String numero);
+    List<Reserva> findByClienteOrderByFechaDesc(Cliente cliente);
 }

@@ -28,10 +28,10 @@ public class Cliente {
     private Boolean estadoCliente;
     @Column(name = "NOMBRE")
     private String nombre;
-    /*@ManyToOne
-    @JoinColumn(name = "ID_SUCURSAL")
-    private TbaSucursal idSucursal;
     @ManyToOne
+    @JoinColumn(name = "ID_USUARIO")
+    private Usuario usuario;
+    /*@ManyToOne
     @JoinColumn(name = "ID_PERSONA")
     private TbaPersona idPersona;*/
 }

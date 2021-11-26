@@ -31,7 +31,7 @@ public class ReservaService {
         reservaRepo.delete(cliente);
     }
 
-    public Reserva findByNumero(String cedula) {
-        return reservaRepo.findByNumero(cedula);
+    public List<Reserva> findByCliente(Cliente cliente) {
+        return reservaRepo.findByClienteOrderByFechaDesc(cliente);
     }
 }

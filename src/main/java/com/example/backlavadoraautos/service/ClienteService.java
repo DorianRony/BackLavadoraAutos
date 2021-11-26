@@ -1,6 +1,7 @@
 package com.example.backlavadoraautos.service;
 
 import com.example.backlavadoraautos.entity.Cliente;
+import com.example.backlavadoraautos.entity.Usuario;
 import com.example.backlavadoraautos.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,9 @@ public class ClienteService {
 
     public Cliente findbyCedula(String cedula) {
         return clienteRepo.findByCedula(cedula);
+    }
+
+    public Cliente findbyUsuario(Usuario usuario) {
+        return clienteRepo.findByUsuario(usuario);
     }
 }

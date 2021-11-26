@@ -1,6 +1,7 @@
 package com.example.backlavadoraautos.controller;
 
 import com.example.backlavadoraautos.entity.Reserva;
+import com.example.backlavadoraautos.service.ClienteService;
 import com.example.backlavadoraautos.service.ReservaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReservaController {
     private final ReservaService reservaService;
+    private final ClienteService clienteService;
 
     @GetMapping(path = "/listar", produces = "application/json")
     public List<Reserva> lista() {
@@ -39,8 +41,8 @@ public class ReservaController {
         return reservaService.findbyId(id);
     }
 
-    @GetMapping(path = "/buscarcedula/{id}", produces = "application/json")
-    public Reserva buscaCedula(@PathVariable("id") String numero) {
-        return reservaService.findByNumero(numero);
+    @GetMapping(path = "/buscarporcliente/{id}", produces = "application/json")
+    public List<Reserva> buscaPorCliente(@PathVariable("id") int idCliente) {
+        return reservaService.findByCliente(clienteService.findbyId(idCliente));
     }
 }
